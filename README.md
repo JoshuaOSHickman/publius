@@ -11,11 +11,13 @@ You got some data?
 Define the data with an initial value and some methods you can call on it.
 
 ```clojure
-(publius-data counter 0
+(use 'publius.core)
+
+(publius-data! counter 0
     (add-one [] (inc counter))
     (add [n] (+ counter n)))
 
-(publius-data name "World"
+(publius-data! name "World"
     (excited [val] (str val "!"))
     (normal [val] val))
 ```
