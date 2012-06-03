@@ -41,17 +41,17 @@ mongod
 
 ; These commands also work over with POSTs and form params.
 
-GET http://localhost:1337/publius/counter.add?n=5
+	GET http://localhost:1337/publius/counter.add?n=5
 
-=> 5
+	=> 5
 
-GET http://localhost:1337/publius/counter.add-one
+	GET http://localhost:1337/publius/counter.add-one
 
-=> 6
+	=> 6
 
-GET http://localhost:1337/publius/report-winnings?name=Bob%20Marley
+	GET http://localhost:1337/publius/report-winnings?name=Bob%20Marley
 
-=> "Hello to you, Bob Marley, good sir, and your $6 winnings!"
+	=> "Hello to you, Bob Marley, good sir, and your $6 winnings!"
 
 Tada! There's your api. No more worries. 
 
