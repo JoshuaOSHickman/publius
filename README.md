@@ -11,27 +11,27 @@ You got some data?
 Define the data with an initial value and some methods you can call on it.
 
 ```clojure
-	(publius-data counter 0
-	    (add-one [] (inc counter))
-	    (add [n] (+ counter n)))
+(publius-data counter 0
+    (add-one [] (inc counter))
+    (add [n] (+ counter n)))
 
-	(publius-data name "World"
-	    (excited [val] (str val "!"))
-	    (normal [val] val))
+(publius-data name "World"
+    (excited [val] (str val "!"))
+    (normal [val] val))
 ```
 
 Maybe you want to do something non-CRUD-y
 
 ```clojure
-	(publius! get-lucky [nonluck-factor]
-	    (swap! counter / nonluck-factor) ; these changes go to the database
-	    (str "The lucky number is..." @counter ", " @name))
+(publius! get-lucky [nonluck-factor]
+    (swap! counter / nonluck-factor) ; these changes go to the database
+    (str "The lucky number is..." @counter ", " @name))
 ```
 
 Then you start the server.
 
 ```clojure
-	(start-http-server @publius-app {:port 1337})
+(start-http-server @publius-app {:port 1337})
 ```
 
 That's all the code you need to write. 
@@ -39,9 +39,9 @@ That's all the code you need to write.
 There's also a middleware option so you can integrate it into your code easier, if you'd like.
 
 ```clojure
-	(def handler (-> my-app
-        	         less-cool-middleware
-                	 @publius-app-middleware))
+(def handler (-> my-app
+       	         less-cool-middleware
+              	 @publius-app-middleware))
 ```
 
 Then you do the web-magics. 
