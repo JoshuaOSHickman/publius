@@ -11,11 +11,13 @@ Prototypes don't need taxonomy. You buy a lot when you have less code, and if it
 You got some data?
 
 ; Define the data with an initial value and some methods you can call on it.
+
 (publius-data counter 0
     (add-one [] (inc counter))
     (add [n] (+ counter n)))
 
 ; Maybe you want to do something non-CRUD-y
+
 (publius! report-winnings [name]
     (str "Hello to you, " name ", good sir, and your $" counter " winnings!"))
 
@@ -36,12 +38,19 @@ Then you do the web-magics.
 mongod
 
 ; Note, you're doing these in a browser -- publius keeps track of identity between requests for you.
+
 ; These commands also work over with POSTs and form params.
+
 GET http://localhost:1337/publius/counter.add?n=5
+
 => 5
+
 GET http://localhost:1337/publius/counter.add-one
+
 => 6
+
 GET http://localhost:1337/publius/report-winnings?name=Bob%20Marley
+
 => "Hello to you, Bob Marley, good sir, and your $6 winnings!"
 
 Tada! There's your api. No more worries. 
