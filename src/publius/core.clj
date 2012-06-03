@@ -196,8 +196,7 @@
                                      (enqueue ~'response-channel res#))))))]
      (swap! publius-functions conj [~(str publius-root name) new-middleware#])))
 
-;;;;(publius-destination! :hello {:status 200 :body "Hello, world!" :headers {}})
-(publius-destination! hello {:status 200 :body "Hello, world!" :headers {}})
+;(publius-destination! hello {:status 200 :body "Hello, world!" :headers {}})
 
 (defn parse-request-args [req expected-args]
   (let [params (:params req)

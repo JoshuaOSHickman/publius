@@ -76,10 +76,21 @@ Better examples on their way (clearly lists and deeply nested objects are just a
 Plenty, plenty, see the code for notes. But this is all you need to get prototypes working, really.
 
 Higher level ideas include:
+* auto-reload support built-in
 * Async behavior control commands
 * JS client library
 * a dynamic/static content handling abstraction
 * optimization (shouldn't warn for reflection)
+
+## Technical Geekery
+
+Yes, I am aware (use 'publius.core) takes like ten seconds to finish. As my friend Chris accurately guessed, this is "an explosion of macros". It also has more than a few dependencies, which all need to be loaded in to the JVM. 
+
+Now, let's be real for a moment. The JVM isn't a technology that can do anything *but* long-running processes, so I'm not worried. I do, though, find this hilarious, and will continue making the computer write more and more code for me in the future, as it will never take as it for it to do it as I will. 
+
+On an even _more_ technical note, I'm aware this breaks some "style guidelines". Variable capture is used incessantly. I think it makes the interface cleaner, and I prefer a clean interface to the highly local complexity of the macros. 
+
+Feedback is much appreciated. I consider this one of the more advanced uses of macros (although not as crazy as core.match), and I hope it's one of the more useful abstractions I could provide.
 
 ## License
 
