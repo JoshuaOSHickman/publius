@@ -14,10 +14,17 @@ Define the data with an initial value and some methods you can call on it.
 	    (add-one [] (inc counter))
 	    (add [n] (+ counter n)))
 
+	(publius-data name "World"
+	    (excited [val] (str val "!"))
+	    (normal [val] val))
+
 Maybe you want to do something non-CRUD-y
 
-	(publius! report-winnings [name]
-	    (str "Hello to you, " name ", good sir, and your $" counter " winnings!"))
+	(publius! get-lucky [nonluck-factor]
+	    (swap! counter / nonluck-factor) ; these changes go to the database
+	    (str "The lucky number is..." @counter ", " @name))
+
+Then you start the server.
 
 	(start-http-server @publius-app {:port 1337})
 
@@ -45,8 +52,10 @@ These commands also work over with POSTs and form params.
 	GET http://localhost:1337/publius/counter.add-one
 	=> 6
 
-	GET http://localhost:1337/publius/report-winnings?name=Bob%20Marley
-	=> "Hello to you, Bob Marley, good sir, and your $6 winnings!"
+	GET http://localhost:1337/publius/name.excited?val=Lotus
+
+	GET http://localhost:1337/publius/get-lucky?nonluck-factor=3
+	=> "The lucky number is... 2, Lotus!"
 
 Tada! There's your api. No more worries. 
 
