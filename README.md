@@ -50,7 +50,7 @@ These commands also work over with POSTs and form params.
 
 Tada! There's your api. No more worries. 
 
-Better examples on their way (clearly lists and deeply nested objects are just as usable). 
+Better examples on their way (clearly lists and deeply nested objects are just as functional). 
 
 ## ToDos
 
