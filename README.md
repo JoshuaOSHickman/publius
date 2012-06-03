@@ -4,42 +4,40 @@
 
 ## Usage
 
-Prototypes, these days, are done often in Rails. I've been asked if clojure has something like rails. The answer is clearly no. And THANK GOD. Rails is terrible. It's funny to hear rails people talk about ritual programming and then go insane if you don't split out one web request across three files so you can call it "well abstracted". 
-
 Prototypes don't need taxonomy. You buy a lot when you have less code, and if it's tightly organized, you buy even more.
 
 You got some data?
 
-; Define the data with an initial value and some methods you can call on it.
+Define the data with an initial value and some methods you can call on it.
 
 	(publius-data counter 0
 	    (add-one [] (inc counter))
 	    (add [n] (+ counter n)))
 
-; Maybe you want to do something non-CRUD-y
+Maybe you want to do something non-CRUD-y
 
 	(publius! report-winnings [name]
 	    (str "Hello to you, " name ", good sir, and your $" counter " winnings!"))
 
-	(start-http-server publius-app {:port 1337})
+	(start-http-server @publius-app {:port 1337})
 
-; That's all the code you need to write. 
+That's all the code you need to write. 
 
-; There's also a middleware option so you can integrate it into your code easier, if you'd like.
+There's also a middleware option so you can integrate it into your code easier, if you'd like.
 
 	(def handler (-> my-app
         	         less-cool-middleware
-                	 publius-app-middleware))
+                	 @publius-app-middleware))
 
 Then you do the web-magics. 
 
-; First, start mongodb (the default persistence engine).
+First, start mongodb (the default persistence engine).
 
-mongod
+	mongod
 
-; Note, you're doing these in a browser -- publius keeps track of identity between requests for you.
+Note, you're doing these in a browser -- publius keeps track of identity between requests for you.
 
-; These commands also work over with POSTs and form params.
+These commands also work over with POSTs and form params.
 
 	GET http://localhost:1337/publius/counter.add?n=5
 
