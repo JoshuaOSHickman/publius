@@ -74,6 +74,7 @@ Better examples on their way (clearly lists and deeply nested objects are just a
 Plenty, plenty, see the code for notes. But this is all you need to get prototypes working, really.
 
 Higher level ideas include (in order of feature level priority -- all non-Readme docs will be in the form of complete projects, which I'll do as I get farther/run out of interesting problems to solve):
+
 1. Shared Data
 2. Push Notifications
 3. Authentication
