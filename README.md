@@ -1,7 +1,5 @@
 # publius
 
-
-
 ## Usage
 
 Prototypes don't need taxonomy. You buy a lot when you have less code, and if it's tightly organized, you buy even more.
@@ -75,20 +73,23 @@ Better examples on their way (clearly lists and deeply nested objects are just a
 
 Plenty, plenty, see the code for notes. But this is all you need to get prototypes working, really.
 
-Higher level ideas include:
-* auto-reload support built-in
-* Async behavior control commands
-* JS client library
-* a dynamic/static content handling abstraction
-* optimization (shouldn't warn for reflection)
+Higher level ideas include (in order of feature level priority -- all non-Readme docs will be in the form of complete projects, which I'll do as I get farther/run out of interesting problems to solve):
+1. Shared Data
+2. Push Notifications
+3. Authentication
+4. SSL support by default
+5. Dynamic/Static content (JS and HTML in particular) Handling
+6. AB Testing
+7. Riak connector (more knobs than mongo, not the tremendous pain of literally every db that isn't one of them)
+8. Auto-reload, stacktrace, connection closing on error, etc. support built-in
+9. Symmetric JS client library
+10. Optimization (shouldn't warn for reflection, etc.) (NOTE: right now this can handle ~350-400 serial requests on my modest laptop, and since it scales out horizontally perfectly fine, I'm not sweating this, likely ever -- push notifications might require a little jiggering to scale linearly, but rest assured, I can do the jiggering for you). 
 
 ## Technical Geekery
 
 Yes, I am aware (use 'publius.core) takes like ten seconds to finish. As my friend Chris accurately guessed, this is "an explosion of macros". It also has more than a few dependencies, which all need to be loaded in to the JVM. 
 
-Now, let's be real for a moment. The JVM isn't a technology that can do anything *but* long-running processes, so I'm not worried. I do, though, find this hilarious, and will continue making the computer write more and more code for me in the future, as it will never take as it for it to do it as I will. 
-
-On an even _more_ technical note, I'm aware this breaks some "style guidelines". Variable capture is used incessantly. I think it makes the interface cleaner, and I prefer a clean interface to the highly local complexity of the macros. 
+On an more technical note, I'm aware this breaks some "style guidelines". Variable capture is used incessantly. I think it makes the interface cleaner, and I prefer a clean interface to the highly local complexity of the macros. 
 
 Feedback is much appreciated. I consider this one of the more advanced uses of macros (although not as crazy as core.match), and I hope it's one of the more useful abstractions I could provide.
 
