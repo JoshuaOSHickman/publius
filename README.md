@@ -41,7 +41,7 @@ There's also a middleware option so you can integrate it into your code easier, 
 ```clojure
 (def handler (-> my-app
        	         less-cool-middleware
-              	 @publius-app-middleware))
+              	 (@publius-app-middleware)))
 ```
 
 Then you do the web-magics. 
