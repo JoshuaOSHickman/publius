@@ -218,7 +218,7 @@
              (and (not (nil? data-string))
                   (not (.isEmpty data-string))
                   (read-string data-string))))
-      (publius-defaults field))
+      (publius-defaults field)))
 
 (defn set-data-field [identity field value]
   (publius-put *publius-db* identity field (pr-str value)))
