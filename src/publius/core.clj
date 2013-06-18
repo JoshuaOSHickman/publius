@@ -290,10 +290,13 @@
 ;;;; todo named middleware
 ;;;; AUTO ssl support with self-signed cert
 
-(defn both-servers []
-  (start-http-server @publius-app {:port 1337})
-  (run-jetty @publius-app {:port 1336}))
+(defn run-server [] (run-jetty @publius-app {:port 1337}))
 
-(defn -main []
-  (println "Starting servers...")
-  (both-servers))
+(comment
+  (defn both-servers []
+    (start-http-server @publius-app {:port 1337})
+    (run-jetty @publius-app {:port 1336}))
+
+  (defn -main []
+    (println "Starting servers...")
+    (both-servers)))
