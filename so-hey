@@ -1,0 +1,7 @@
+To upload a new version:
+
+lein deploy clojars
+
+it'll ask you for user name/password, use joshuaoshickman and the password for clojars. 
+
+the popup will pop up, give it the passphrase for gpg
